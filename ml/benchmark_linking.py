@@ -56,9 +56,11 @@ def outcomes(best, top1_ok, topk_ok, novel, auto_min, ask_min):
         "lost_rate": (best < ask_min)[pos].mean(),          # real match created as "new"
         "novel_to_new": (best < ask_min)[novel].mean(),
         "novel_auto_linked": auto[novel].mean(),            # worst error
-        # end to end: user ends up on the right interest (auto-correct, or picked from suggestions, or new)
-        "end_to_end": ((auto & top1_ok) | (ask & topk_ok))[pos].sum() / pos.sum() * pos.mean()
-                      + (best < ask_min)[novel].mean() * novel.mean(),
+        # end to end: the user ends up on the right interest. link() always returns the top 3, so a
+        # real interest that is not auto-linked is fine if it is among them; a novel one is fine if it
+        # is not auto-linked. A silent wrong link is the only unrecoverable outcome.
+        "end_to_end": ((auto & top1_ok) | (~auto & topk_ok))[pos].sum() / pos.sum() * pos.mean()
+                      + (~auto)[novel].mean() * novel.mean(),
     }
 
 

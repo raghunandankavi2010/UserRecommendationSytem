@@ -14,9 +14,9 @@ from typing import Callable, Sequence
 import numpy as np
 
 # Chosen by ml/benchmark_linking.py (2-fold, docs/PHASE1_RESULTS.md). Model-specific: retune per model version.
-EMBED_MODEL = "thenlper/gte-small"  # 384-d, MIT, ~13 ms per interest on CPU
-AUTO_LINK_MIN = 0.91
-ASK_MIN = 0.86
+EMBED_MODEL = "google/embeddinggemma-300m"  # 768-d, Gemma licence, ~55 ms per interest on CPU, STS prompt
+AUTO_LINK_MIN = 0.83
+ASK_MIN = 0.81
 TOP_K = 3
 
 Encoder = Callable[[list[str]], np.ndarray]  # texts -> unit-length row vectors
@@ -78,4 +78,5 @@ def st_encoder(model: str = EMBED_MODEL) -> Encoder:
         from sentence_transformers import SentenceTransformer  # heavy import, only when needed
         _models[model] = SentenceTransformer(model, device="cpu")
     m = _models[model]
-    return lambda texts: m.encode(texts, normalize_embeddings=True, show_progress_bar=False)
+    prompt = "STS" if "STS" in m.prompts else None  # e.g. EmbeddingGemma: symmetric similarity task prompt
+    return lambda texts: m.encode(texts, prompt_name=prompt, normalize_embeddings=True, show_progress_bar=False)

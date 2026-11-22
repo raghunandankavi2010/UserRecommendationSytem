@@ -15,7 +15,7 @@ Why each choice: see `RESEARCH.md`. This plan turns the prototype (`src/recsys`)
 |---|---|---|
 | Database + vectors | PostgreSQL 16 + pgvector (HNSW) | One store for users, interests, vectors, feedback |
 | API | Python, FastAPI, SQLAlchemy + Alembic | Same language as the model; prototype code reused |
-| Model | sentence-transformers `thenlper/gte-small` (chosen in Phase 1, see `PHASE1_RESULTS.md`) | English, small, fine-tunable, works on unseen interests |
+| Model | sentence-transformers `google/embeddinggemma-300m` (chosen in Phase 1, see `PHASE1_RESULTS.md`) | English, small, fine-tunable, works on unseen interests |
 | Background work | One worker (`arq` on Redis) + scheduled jobs | Embed on write, taxonomy merge, retrain |
 | Packaging | Docker Compose: db, redis, api, worker | Local now, portable to a VM later |
 | Observability | Structured logs, Prometheus `/metrics` | Latency, errors, model version per request |

@@ -1,5 +1,545 @@
 [
   {
+    "model": "google/embeddinggemma-300m",
+    "top1_acc": 0.8873239436619719,
+    "top3_acc": 0.9753521126760564,
+    "auto_min": 0.83,
+    "ask_min": 0.815,
+    "auto_rate": 0.6443661971830986,
+    "auto_precision": 0.9673874512584191,
+    "ask_rate": 0.06690140845070422,
+    "ask_hit_rate": 0.5,
+    "lost_rate": 0.2887323943661972,
+    "novel_to_new": 0.8704710144927537,
+    "novel_auto_linked": 0.020833333333333332,
+    "end_to_end": 0.9637276378240234,
+    "folds": [
+      {
+        "auto_min": 0.83,
+        "ask_min": 0.83,
+        "auto_rate": 0.647887323943662,
+        "auto_precision": 0.967741935483871,
+        "ask_rate": 0.0,
+        "ask_hit_rate": 0.0,
+        "lost_rate": 0.352112676056338,
+        "novel_to_new": 0.9583333333333334,
+        "novel_auto_linked": 0.041666666666666664,
+        "end_to_end": 0.9698795180722892
+      },
+      {
+        "auto_min": 0.83,
+        "ask_min": 0.8,
+        "auto_rate": 0.6408450704225352,
+        "auto_precision": 0.967032967032967,
+        "ask_rate": 0.13380281690140844,
+        "ask_hit_rate": 1.0,
+        "lost_rate": 0.22535211267605634,
+        "novel_to_new": 0.782608695652174,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.9575757575757575
+      }
+    ],
+    "encode_one_ms": 55.4,
+    "batch_s": 8.1,
+    "test_misses": [
+      [
+        "south indian filter kaapi",
+        "South Indian food",
+        0.81
+      ],
+      [
+        "degree coffee",
+        "Coffee",
+        0.86
+      ],
+      [
+        "making cocktails at home",
+        "Home brewing",
+        0.81
+      ],
+      [
+        "tasting menus",
+        "Wine tasting",
+        0.79
+      ],
+      [
+        "functional fitness",
+        "Dance fitness",
+        0.82
+      ],
+      [
+        "macro counting",
+        "Crochet",
+        0.64
+      ],
+      [
+        "therapy and self care",
+        "Self improvement",
+        0.82
+      ],
+      [
+        "tabata",
+        "Calisthenics",
+        0.78
+      ],
+      [
+        "mountain trails",
+        "Mountaineering",
+        0.83
+      ],
+      [
+        "hostel hopping",
+        "Cafe hopping",
+        0.79
+      ],
+      [
+        "wheel throwing",
+        "Cycling",
+        0.72
+      ],
+      [
+        "procreate illustrations",
+        "Drawing",
+        0.8
+      ],
+      [
+        "kolam",
+        "Swimming",
+        0.76
+      ],
+      [
+        "mithila painting",
+        "Painting",
+        0.86
+      ],
+      [
+        "analog cameras",
+        "Photography",
+        0.78
+      ],
+      [
+        "premiere pro",
+        "Filmmaking",
+        0.72
+      ],
+      [
+        "movie marathons",
+        "Marathons",
+        0.81
+      ],
+      [
+        "hindi movies",
+        "Movies",
+        0.87
+      ],
+      [
+        "ghazals",
+        "Poetry",
+        0.75
+      ],
+      [
+        "house music",
+        "DJing",
+        0.78
+      ],
+      [
+        "mixing tracks",
+        "Music production",
+        0.8
+      ],
+      [
+        "steam games",
+        "Video games",
+        0.83
+      ],
+      [
+        "BGMI",
+        "Bollywood",
+        0.71
+      ],
+      [
+        "monopoly nights",
+        "Poker nights",
+        0.83
+      ],
+      [
+        "trivia nights",
+        "Poker nights",
+        0.78
+      ],
+      [
+        "LLMs",
+        "Machine learning",
+        0.66
+      ],
+      [
+        "latest smartphones",
+        "Mobile photography",
+        0.74
+      ],
+      [
+        "NGO work",
+        "Community service",
+        0.75
+      ],
+      [
+        "classical dance",
+        "Dancing",
+        0.85
+      ],
+      [
+        "bachata",
+        "Dancing",
+        0.77
+      ],
+      [
+        "decluttering",
+        "Thrifting",
+        0.78
+      ],
+      [
+        "wine making",
+        "Wine tasting",
+        0.87
+      ]
+    ]
+  },
+  {
+    "model": "thenlper/gte-small",
+    "top1_acc": 0.795774647887324,
+    "top3_acc": 0.8908450704225352,
+    "auto_min": 0.91,
+    "ask_min": 0.865,
+    "auto_rate": 0.3838028169014085,
+    "auto_precision": 0.9452464788732394,
+    "ask_rate": 0.3767605633802817,
+    "ask_hit_rate": 0.9645782145782146,
+    "lost_rate": 0.23943661971830987,
+    "novel_to_new": 0.8288043478260869,
+    "novel_auto_linked": 0.041666666666666664,
+    "end_to_end": 0.8852318364366557,
+    "folds": [
+      {
+        "auto_min": 0.9,
+        "ask_min": 0.87,
+        "auto_rate": 0.4859154929577465,
+        "auto_precision": 0.9154929577464789,
+        "ask_rate": 0.2323943661971831,
+        "ask_hit_rate": 0.9696969696969697,
+        "lost_rate": 0.28169014084507044,
+        "novel_to_new": 0.875,
+        "novel_auto_linked": 0.08333333333333333,
+        "end_to_end": 0.8734939759036144
+      },
+      {
+        "auto_min": 0.92,
+        "ask_min": 0.86,
+        "auto_rate": 0.28169014084507044,
+        "auto_precision": 0.975,
+        "ask_rate": 0.5211267605633803,
+        "ask_hit_rate": 0.9594594594594594,
+        "lost_rate": 0.19718309859154928,
+        "novel_to_new": 0.782608695652174,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.896969696969697
+      }
+    ],
+    "encode_one_ms": 13.2,
+    "batch_s": 5.1,
+    "test_misses": [
+      [
+        "south indian filter kaapi",
+        "South Indian food",
+        0.85
+      ],
+      [
+        "degree coffee",
+        "Coffee",
+        0.91
+      ],
+      [
+        "masala chai",
+        "Biryani",
+        0.83
+      ],
+      [
+        "chai on rainy evenings",
+        "Biryani",
+        0.82
+      ],
+      [
+        "IPA",
+        "Hip hop",
+        0.84
+      ],
+      [
+        "mixology",
+        "EDM",
+        0.83
+      ],
+      [
+        "pani puri and chaat",
+        "Bollywood",
+        0.84
+      ],
+      [
+        "tasting menus",
+        "Wine tasting",
+        0.86
+      ],
+      [
+        "cake decorating",
+        "Home decor",
+        0.87
+      ],
+      [
+        "dosa and idli",
+        "Rangoli",
+        0.83
+      ],
+      [
+        "masala dosa",
+        "Bollywood",
+        0.82
+      ],
+      [
+        "rajasthani thali",
+        "Biryani",
+        0.83
+      ],
+      [
+        "running ultramarathons",
+        "Running",
+        0.89
+      ],
+      [
+        "vipassana",
+        "Yoga",
+        0.85
+      ],
+      [
+        "functional fitness",
+        "Gym",
+        0.87
+      ],
+      [
+        "bodyweight training",
+        "Bodybuilding",
+        0.89
+      ],
+      [
+        "pull ups and street workout",
+        "HIIT workouts",
+        0.86
+      ],
+      [
+        "being present",
+        "Public speaking",
+        0.83
+      ],
+      [
+        "macro counting",
+        "Puzzles",
+        0.82
+      ],
+      [
+        "pranayama",
+        "Yoga",
+        0.89
+      ],
+      [
+        "therapy and self care",
+        "Self improvement",
+        0.87
+      ],
+      [
+        "tabata",
+        "Tea",
+        0.83
+      ],
+      [
+        "hiking",
+        "Walking",
+        0.91
+      ],
+      [
+        "mountain trails",
+        "Mountaineering",
+        0.88
+      ],
+      [
+        "jumping out of planes",
+        "Paragliding",
+        0.87
+      ],
+      [
+        "hostel hopping",
+        "Cafe hopping",
+        0.91
+      ],
+      [
+        "exploring caves",
+        "Scuba diving",
+        0.86
+      ],
+      [
+        "wheel throwing",
+        "Bungee jumping",
+        0.82
+      ],
+      [
+        "amigurumi",
+        "Anime",
+        0.83
+      ],
+      [
+        "street art",
+        "Street photography",
+        0.92
+      ],
+      [
+        "procreate illustrations",
+        "Drawing",
+        0.84
+      ],
+      [
+        "kolam",
+        "Poetry",
+        0.8
+      ],
+      [
+        "mithila painting",
+        "Painting",
+        0.86
+      ],
+      [
+        "analog cameras",
+        "Videography",
+        0.86
+      ],
+      [
+        "movie marathons",
+        "Marathons",
+        0.91
+      ],
+      [
+        "kollywood",
+        "Bollywood",
+        0.84
+      ],
+      [
+        "ghazals",
+        "Desserts",
+        0.8
+      ],
+      [
+        "techno",
+        "DJing",
+        0.85
+      ],
+      [
+        "house music",
+        "Carnatic music",
+        0.85
+      ],
+      [
+        "BTS",
+        "Startups",
+        0.82
+      ],
+      [
+        "sunburn festival",
+        "Festivals",
+        0.87
+      ],
+      [
+        "going to gigs",
+        "DJing",
+        0.87
+      ],
+      [
+        "mixing tracks",
+        "Music production",
+        0.86
+      ],
+      [
+        "gaming",
+        "PC gaming",
+        0.94
+      ],
+      [
+        "BGMI",
+        "Bharatanatyam",
+        0.83
+      ],
+      [
+        "catan",
+        "Cats",
+        0.85
+      ],
+      [
+        "monopoly nights",
+        "Poker nights",
+        0.9
+      ],
+      [
+        "rummy",
+        "Quizzing",
+        0.81
+      ],
+      [
+        "speedcubing",
+        "Dancing",
+        0.84
+      ],
+      [
+        "LLMs",
+        "EDM",
+        0.81
+      ],
+      [
+        "ethical hacking",
+        "Hackathons",
+        0.88
+      ],
+      [
+        "journaling",
+        "Blogging",
+        0.88
+      ],
+      [
+        "budgeting",
+        "Sketching",
+        0.85
+      ],
+      [
+        "open mics",
+        "Public speaking",
+        0.86
+      ],
+      [
+        "classical dance",
+        "Dancing",
+        0.89
+      ],
+      [
+        "bachata",
+        "Tea",
+        0.82
+      ],
+      [
+        "decluttering",
+        "Thrifting",
+        0.85
+      ],
+      [
+        "wine making",
+        "Wine tasting",
+        0.9
+      ]
+    ]
+  },
+  {
     "model": "sentence-transformers/all-MiniLM-L6-v2",
     "top1_acc": 0.7288732394366197,
     "top3_acc": 0.8415492957746479,
@@ -12,7 +552,7 @@
     "lost_rate": 0.3274647887323944,
     "novel_to_new": 0.8740942028985508,
     "novel_auto_linked": 0.0,
-    "end_to_end": 0.6706462212486308,
+    "end_to_end": 0.8579956188389923,
     "folds": [
       {
         "auto_min": 0.76,
@@ -24,7 +564,7 @@
         "lost_rate": 0.29577464788732394,
         "novel_to_new": 0.7916666666666666,
         "novel_auto_linked": 0.0,
-        "end_to_end": 0.6867469879518072
+        "end_to_end": 0.8614457831325302
       },
       {
         "auto_min": 0.73,
@@ -36,11 +576,11 @@
         "lost_rate": 0.3591549295774648,
         "novel_to_new": 0.9565217391304348,
         "novel_auto_linked": 0.0,
-        "end_to_end": 0.6545454545454545
+        "end_to_end": 0.8545454545454545
       }
     ],
-    "encode_one_ms": 7.3,
-    "batch_s": 0.6,
+    "encode_one_ms": 7.9,
+    "batch_s": 0.5,
     "test_misses": [
       [
         "south indian filter kaapi",
@@ -442,7 +982,7 @@
     "lost_rate": 0.29225352112676056,
     "novel_to_new": 0.6983695652173914,
     "novel_auto_linked": 0.0625,
-    "end_to_end": 0.664877692588536,
+    "end_to_end": 0.8761774370208104,
     "folds": [
       {
         "auto_min": 0.79,
@@ -454,7 +994,7 @@
         "lost_rate": 0.4014084507042254,
         "novel_to_new": 0.875,
         "novel_auto_linked": 0.125,
-        "end_to_end": 0.5903614457831325
+        "end_to_end": 0.8614457831325301
       },
       {
         "auto_min": 0.82,
@@ -466,11 +1006,11 @@
         "lost_rate": 0.18309859154929578,
         "novel_to_new": 0.5217391304347826,
         "novel_auto_linked": 0.0,
-        "end_to_end": 0.7393939393939394
+        "end_to_end": 0.8909090909090909
       }
     ],
-    "encode_one_ms": 14.1,
-    "batch_s": 1.0,
+    "encode_one_ms": 12.5,
+    "batch_s": 0.9,
     "test_misses": [
       [
         "south indian filter kaapi",
@@ -755,341 +1295,6 @@
     ]
   },
   {
-    "model": "thenlper/gte-small",
-    "top1_acc": 0.795774647887324,
-    "top3_acc": 0.8908450704225352,
-    "auto_min": 0.91,
-    "ask_min": 0.865,
-    "auto_rate": 0.3838028169014085,
-    "auto_precision": 0.9452464788732394,
-    "ask_rate": 0.3767605633802817,
-    "ask_hit_rate": 0.9645782145782146,
-    "lost_rate": 0.23943661971830987,
-    "novel_to_new": 0.8288043478260869,
-    "novel_auto_linked": 0.041666666666666664,
-    "end_to_end": 0.7433004746257759,
-    "folds": [
-      {
-        "auto_min": 0.9,
-        "ask_min": 0.87,
-        "auto_rate": 0.4859154929577465,
-        "auto_precision": 0.9154929577464789,
-        "ask_rate": 0.2323943661971831,
-        "ask_hit_rate": 0.9696969696969697,
-        "lost_rate": 0.28169014084507044,
-        "novel_to_new": 0.875,
-        "novel_auto_linked": 0.08333333333333333,
-        "end_to_end": 0.7108433734939759
-      },
-      {
-        "auto_min": 0.92,
-        "ask_min": 0.86,
-        "auto_rate": 0.28169014084507044,
-        "auto_precision": 0.975,
-        "ask_rate": 0.5211267605633803,
-        "ask_hit_rate": 0.9594594594594594,
-        "lost_rate": 0.19718309859154928,
-        "novel_to_new": 0.782608695652174,
-        "novel_auto_linked": 0.0,
-        "end_to_end": 0.7757575757575758
-      }
-    ],
-    "encode_one_ms": 13.4,
-    "batch_s": 5.3,
-    "test_misses": [
-      [
-        "south indian filter kaapi",
-        "South Indian food",
-        0.85
-      ],
-      [
-        "degree coffee",
-        "Coffee",
-        0.91
-      ],
-      [
-        "masala chai",
-        "Biryani",
-        0.83
-      ],
-      [
-        "chai on rainy evenings",
-        "Biryani",
-        0.82
-      ],
-      [
-        "IPA",
-        "Hip hop",
-        0.84
-      ],
-      [
-        "mixology",
-        "EDM",
-        0.83
-      ],
-      [
-        "pani puri and chaat",
-        "Bollywood",
-        0.84
-      ],
-      [
-        "tasting menus",
-        "Wine tasting",
-        0.86
-      ],
-      [
-        "cake decorating",
-        "Home decor",
-        0.87
-      ],
-      [
-        "dosa and idli",
-        "Rangoli",
-        0.83
-      ],
-      [
-        "masala dosa",
-        "Bollywood",
-        0.82
-      ],
-      [
-        "rajasthani thali",
-        "Biryani",
-        0.83
-      ],
-      [
-        "running ultramarathons",
-        "Running",
-        0.89
-      ],
-      [
-        "vipassana",
-        "Yoga",
-        0.85
-      ],
-      [
-        "functional fitness",
-        "Gym",
-        0.87
-      ],
-      [
-        "bodyweight training",
-        "Bodybuilding",
-        0.89
-      ],
-      [
-        "pull ups and street workout",
-        "HIIT workouts",
-        0.86
-      ],
-      [
-        "being present",
-        "Public speaking",
-        0.83
-      ],
-      [
-        "macro counting",
-        "Puzzles",
-        0.82
-      ],
-      [
-        "pranayama",
-        "Yoga",
-        0.89
-      ],
-      [
-        "therapy and self care",
-        "Self improvement",
-        0.87
-      ],
-      [
-        "tabata",
-        "Tea",
-        0.83
-      ],
-      [
-        "hiking",
-        "Walking",
-        0.91
-      ],
-      [
-        "mountain trails",
-        "Mountaineering",
-        0.88
-      ],
-      [
-        "jumping out of planes",
-        "Paragliding",
-        0.87
-      ],
-      [
-        "hostel hopping",
-        "Cafe hopping",
-        0.91
-      ],
-      [
-        "exploring caves",
-        "Scuba diving",
-        0.86
-      ],
-      [
-        "wheel throwing",
-        "Bungee jumping",
-        0.82
-      ],
-      [
-        "amigurumi",
-        "Anime",
-        0.83
-      ],
-      [
-        "street art",
-        "Street photography",
-        0.92
-      ],
-      [
-        "procreate illustrations",
-        "Drawing",
-        0.84
-      ],
-      [
-        "kolam",
-        "Poetry",
-        0.8
-      ],
-      [
-        "mithila painting",
-        "Painting",
-        0.86
-      ],
-      [
-        "analog cameras",
-        "Videography",
-        0.86
-      ],
-      [
-        "movie marathons",
-        "Marathons",
-        0.91
-      ],
-      [
-        "kollywood",
-        "Bollywood",
-        0.84
-      ],
-      [
-        "ghazals",
-        "Desserts",
-        0.8
-      ],
-      [
-        "techno",
-        "DJing",
-        0.85
-      ],
-      [
-        "house music",
-        "Carnatic music",
-        0.85
-      ],
-      [
-        "BTS",
-        "Startups",
-        0.82
-      ],
-      [
-        "sunburn festival",
-        "Festivals",
-        0.87
-      ],
-      [
-        "going to gigs",
-        "DJing",
-        0.87
-      ],
-      [
-        "mixing tracks",
-        "Music production",
-        0.86
-      ],
-      [
-        "gaming",
-        "PC gaming",
-        0.94
-      ],
-      [
-        "BGMI",
-        "Bharatanatyam",
-        0.83
-      ],
-      [
-        "catan",
-        "Cats",
-        0.85
-      ],
-      [
-        "monopoly nights",
-        "Poker nights",
-        0.9
-      ],
-      [
-        "rummy",
-        "Quizzing",
-        0.81
-      ],
-      [
-        "speedcubing",
-        "Dancing",
-        0.84
-      ],
-      [
-        "LLMs",
-        "EDM",
-        0.81
-      ],
-      [
-        "ethical hacking",
-        "Hackathons",
-        0.88
-      ],
-      [
-        "journaling",
-        "Blogging",
-        0.88
-      ],
-      [
-        "budgeting",
-        "Sketching",
-        0.85
-      ],
-      [
-        "open mics",
-        "Public speaking",
-        0.86
-      ],
-      [
-        "classical dance",
-        "Dancing",
-        0.89
-      ],
-      [
-        "bachata",
-        "Tea",
-        0.82
-      ],
-      [
-        "decluttering",
-        "Thrifting",
-        0.85
-      ],
-      [
-        "wine making",
-        "Wine tasting",
-        0.9
-      ]
-    ]
-  },
-  {
     "model": "Snowflake/snowflake-arctic-embed-s",
     "top1_acc": 0.7183098591549296,
     "top3_acc": 0.8028169014084507,
@@ -1102,7 +1307,7 @@
     "lost_rate": 0.30281690140845074,
     "novel_to_new": 0.8288043478260869,
     "novel_auto_linked": 0.020833333333333332,
-    "end_to_end": 0.6315808689302665,
+    "end_to_end": 0.8007301935012778,
     "folds": [
       {
         "auto_min": 0.78,
@@ -1114,7 +1319,7 @@
         "lost_rate": 0.31690140845070425,
         "novel_to_new": 0.875,
         "novel_auto_linked": 0.041666666666666664,
-        "end_to_end": 0.5783132530120482
+        "end_to_end": 0.7590361445783134
       },
       {
         "auto_min": 0.88,
@@ -1126,11 +1331,11 @@
         "lost_rate": 0.2887323943661972,
         "novel_to_new": 0.782608695652174,
         "novel_auto_linked": 0.0,
-        "end_to_end": 0.6848484848484849
+        "end_to_end": 0.8424242424242424
       }
     ],
-    "encode_one_ms": 12.2,
-    "batch_s": 1.0,
+    "encode_one_ms": 12.7,
+    "batch_s": 1.3,
     "test_misses": [
       [
         "espresso and lattes",
@@ -1547,7 +1752,7 @@
     "lost_rate": 0.3028169014084507,
     "novel_to_new": 0.7663043478260869,
     "novel_auto_linked": 0.0,
-    "end_to_end": 0.6797553851770719,
+    "end_to_end": 0.9123767798466594,
     "folds": [
       {
         "auto_min": 0.75,
@@ -1559,7 +1764,7 @@
         "lost_rate": 0.3028169014084507,
         "novel_to_new": 0.75,
         "novel_auto_linked": 0.0,
-        "end_to_end": 0.6807228915662651
+        "end_to_end": 0.9156626506024097
       },
       {
         "auto_min": 0.73,
@@ -1571,11 +1776,11 @@
         "lost_rate": 0.3028169014084507,
         "novel_to_new": 0.782608695652174,
         "novel_auto_linked": 0.0,
-        "end_to_end": 0.6787878787878788
+        "end_to_end": 0.9090909090909092
       }
     ],
-    "encode_one_ms": 28.6,
-    "batch_s": 3.2,
+    "encode_one_ms": 29.1,
+    "batch_s": 3.0,
     "test_misses": [
       [
         "south indian filter kaapi",

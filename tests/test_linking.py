@@ -50,7 +50,7 @@ def test_real_model_on_clear_cases():
     from matcher.linking import st_encoder
     tax = json.loads((Path(__file__).parents[1] / "ml/data/taxonomy.json").read_text())
     linker = InterestLinker([l for g in tax.values() for l in g], st_encoder())
-    hiking = linker.link("hiking")  # gte-small ranks Walking first; aliases/fine-tuning should fix this
+    hiking = linker.link("hiking")  # hiking ~ walking is a known near miss; never auto-link it to Walking
     assert "Trekking" in hiking.suggestions and hiking.interest != "Walking"
     assert "Filter coffee" in linker.link("filter kaapi").suggestions
     assert linker.link("beekeeping").decision != "linked"
