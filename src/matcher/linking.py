@@ -26,6 +26,17 @@ def normalize(text: str) -> str:
     return " ".join(text.split())
 
 
+def key(text: str) -> str:
+    """Lookup key for exact label/alias matches."""
+    return normalize(text).lower()
+
+
+def decision(best: float, auto_min: float = AUTO_LINK_MIN, ask_min: float = ASK_MIN) -> str:
+    if best >= auto_min:
+        return "linked"
+    return "did_you_mean" if best >= ask_min else "new"
+
+
 @dataclass(frozen=True)
 class LinkResult:
     decision: str                 # linked | did_you_mean | new
@@ -61,12 +72,9 @@ class InterestLinker:
     def decide(self, row: np.ndarray) -> LinkResult:
         top = np.argsort(-row)[: self.k]
         best = float(row[top[0]])
-        suggestions = tuple(self.labels[i] for i in top)
-        if best >= self.auto_min:
-            return LinkResult("linked", suggestions[0], best, suggestions)
-        if best >= self.ask_min:
-            return LinkResult("did_you_mean", None, best, suggestions)
-        return LinkResult("new", None, best, suggestions)  # app can still offer them before creating
+        suggestions = tuple(self.labels[i] for i in top)  # returned for every decision: the app can offer them
+        d = decision(best, self.auto_min, self.ask_min)
+        return LinkResult(d, suggestions[0] if d == "linked" else None, best, suggestions)
 
 
 _models: dict = {}

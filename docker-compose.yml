@@ -18,10 +18,19 @@ services:
     build: .
     environment:
       DATABASE_URL: postgresql://matcher:${POSTGRES_PASSWORD}@db:5432/matcher
+      API_KEY: ${API_KEY:?set API_KEY in .env}
+      HF_HOME: /hf
+      HF_HUB_OFFLINE: "1"   # weights come from the mounted cache; no Hugging Face token inside the container
+    volumes:
+      - ${HF_CACHE:-~/.cache/huggingface}/hub:/hf/hub:ro
     ports: ["127.0.0.1:8000:8000"]
     depends_on:
       db:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      start_period: 60s
 
 volumes:
   pgdata:

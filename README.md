@@ -6,13 +6,26 @@ Every recommendation explains itself: shared interests, semantically similar int
 count, common places, days since active. Phone and email are stored but never used or returned.
 
 ## Service (production version, in progress)
-Plan and research: `docs/PLAN.md`, `docs/RESEARCH.md`, `docs/PHASE1_RESULTS.md`. Code: `src/matcher/` (API, `linking.py`), `ml/` (data, benchmarks).
+Plan and research: `docs/PLAN.md`, `docs/RESEARCH.md`, `docs/PHASE1_RESULTS.md`. Code: `src/matcher/` (`main.py` API, `interests.py`, `matching.py`, `linking.py`, `migrations/`), `ml/` (data, benchmarks, load test).
 ```bash
-cp .env.example .env          # then set POSTGRES_PASSWORD
+cp .env.example .env          # then set POSTGRES_PASSWORD and API_KEY
+.venv/bin/hf auth login       # once: the model (EmbeddingGemma) is gated; the container reads ~/.cache/huggingface
 docker compose up -d --build
 curl localhost:8000/health    # {"status":"ok","pgvector":"..."}
+open http://localhost:8000/docs   # interactive API docs (OpenAPI)
 TEST_DATABASE_URL=postgresql://matcher:<password>@127.0.0.1:5432/matcher .venv/bin/pytest -q tests
+DATABASE_URL=postgresql://matcher:<password>@127.0.0.1:5432/matcher .venv/bin/python ml/load_test.py 100000
 ```
+Every endpoint except `/health` needs the `X-API-Key` header. Users are addressed by the Peoplo app's own id.
+
+| Endpoint | Does |
+|---|---|
+| `POST /users` | Onboard (name, email, phone, photo_url, interests[]); each interest comes back linked / did_you_mean / new |
+| `POST /users/{id}/interests` | Add one; resend with `choice` = picked interest id or `"new"` to answer a suggestion |
+| `POST /users/{id}/matches` | Ranked people with common + similar interests; optional `candidate_ids` = people nearby |
+| `POST /events` | shown / wave / accept / dismiss / block (training data for Phase 3) |
+| `GET /users/{id}/connections/{other}` | After both waved/accepted: name, email, photo, common interests |
+| `GET/PATCH/DELETE /users/{id}`, `DELETE /users/{id}/interests/{iid}`, `GET /interests/suggest?q=` | Profile, removal, autocomplete |
 
 ## Run it (prototype)
 ```bash

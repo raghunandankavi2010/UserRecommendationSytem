@@ -14,9 +14,9 @@ Why each choice: see `RESEARCH.md`. This plan turns the prototype (`src/recsys`)
 | Layer | Choice | Why |
 |---|---|---|
 | Database + vectors | PostgreSQL 16 + pgvector (HNSW) | One store for users, interests, vectors, feedback |
-| API | Python, FastAPI, SQLAlchemy + Alembic | Same language as the model; prototype code reused |
+| API | Python, FastAPI, psycopg 3 + plain numbered SQL migrations | Same language as the model; prototype code reused |
 | Model | sentence-transformers `google/embeddinggemma-300m` (chosen in Phase 1, see `PHASE1_RESULTS.md`) | English, small, fine-tunable, works on unseen interests |
-| Background work | One worker (`arq` on Redis) + scheduled jobs | Embed on write, taxonomy merge, retrain |
+| Background work | Scheduled jobs only (Phase 3). No queue: linking must answer the app synchronously, and a user-vector update is a cheap average | Taxonomy merge, IDF refresh, retrain |
 | Packaging | Docker Compose: db, redis, api, worker | Local now, portable to a VM later |
 | Observability | Structured logs, Prometheus `/metrics` | Latency, errors, model version per request |
 
@@ -106,12 +106,16 @@ Match item:
 - Seed taxonomy of ~300 canonical interests.
 - Done when: linking precision is measured and tested.
 
-### Phase 2: backend core (3–4 days)
+### Phase 2: backend core (done 2026-11-22)
 - Schema + migrations, onboarding/interest endpoints, worker, matching, events, connections.
 - Interest aliases: every confirmed "did you mean" phrase is stored and linked directly next time.
 - Port `Recommender` scoring from the prototype.
 - Done when: API tests cover the three linking paths, matching with and without `candidate_ids`,
   exclusions, PII never in `/matches`, contact only after mutual accept, p95 < 150 ms on 100k users.
+- Result: 17 tests pass; `ml/load_test.py` at 100k users: p95 **63 ms** (full retrieval),
+  **32 ms** (app sends 300 nearby ids). Fixes that got it there from 1.2 s: HNSW `ef_search` raised to
+  the retrieval size (default 40 silently capped results), per-interest `user_count` kept by trigger,
+  semantic score computed in Postgres, interest vectors cached per process.
 
 ### Phase 3: learning loop (2–3 days)
 - Nightly taxonomy job, weekly retrain with eval gate, versioned re-embed, rollback, A/B report.
