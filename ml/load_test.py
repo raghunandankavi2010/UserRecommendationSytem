@@ -18,8 +18,7 @@ import psycopg
 from pgvector.psycopg import register_vector
 from psycopg.rows import dict_row
 
-from matcher import db, interests, matching
-from matcher.linking import st_encoder
+from matcher import db, interests, matching, versions
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 100_000
 rng = np.random.default_rng(0)
@@ -33,9 +32,11 @@ db.migrate(url)
 
 with psycopg.connect(url, row_factory=dict_row) as c:
     register_vector(c)
-    interests.seed_taxonomy(c, st_encoder(), Path("ml/data/taxonomy.json"))
-    rows = c.execute("SELECT id, embedding FROM interests ORDER BY id").fetchall()
-    ids = np.array([r["id"] for r in rows])
+    m = versions.load(c)
+    interests.seed_taxonomy(c, m, Path("ml/data/taxonomy.json"))
+    rows = c.execute("SELECT interest_id, embedding FROM interest_vectors WHERE model_version = %s "
+                     "ORDER BY interest_id", (m.version,)).fetchall()
+    ids = np.array([r["interest_id"] for r in rows])
     E = np.stack([r["embedding"].to_numpy() for r in rows])
     pop = 1 / np.arange(1, len(ids) + 1) ** 0.8
     pop = rng.permutation(pop / pop.sum())
@@ -58,7 +59,7 @@ with psycopg.connect(url, row_factory=dict_row) as c:
             cp.set_types(["int8", "text", "vector"])
             for u, p in enumerate(picks, 1):
                 v = (w[p, None] * E[p]).sum(0)
-                cp.write_row((u, interests.MODEL_VERSION, v / np.linalg.norm(v)))
+                cp.write_row((u, m.version, v / np.linalg.norm(v)))
     c.execute("SELECT setval('users_id_seq', %s)", (N,))
     c.execute("UPDATE interests i SET user_count = d.n FROM (SELECT interest_id, count(*) AS n FROM user_interests "
               "GROUP BY interest_id) d WHERE d.interest_id = i.id")
@@ -79,11 +80,11 @@ with psycopg.connect(url, row_factory=dict_row) as c:
         for u in sample:
             ext = None if cand is None else [f"u{x}" for x in rng.integers(1, N + 1, size=cand)]
             t0 = time.perf_counter()
-            out = matching.recommend(c, int(u), ext, limit=20)
+            out = matching.recommend(c, m.version, int(u), ext, limit=20)
             times.append((time.perf_counter() - t0) * 1000)
             if cand is None:
                 vec = c.execute("SELECT embedding FROM user_vectors WHERE user_id = %s", (int(u),)).fetchone()["embedding"]
-                n_ann.append(len(matching._candidates(c, int(u), vec, None)))
+                n_ann.append(len(matching._candidates(c, m.version, int(u), vec, None)))
             c.rollback()  # end the transaction so SET LOCAL does not leak between runs
             assert len(out) == 20
         p50, p95 = np.percentile(times, [50, 95])
