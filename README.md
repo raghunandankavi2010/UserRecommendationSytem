@@ -6,7 +6,7 @@ Every recommendation explains itself: shared interests, semantically similar int
 count, common places, days since active. Phone and email are stored but never used or returned.
 
 ## Service (production version, in progress)
-Plan and research: `docs/PLAN.md`, `docs/RESEARCH.md`. Code: `src/matcher/`.
+Plan and research: `docs/PLAN.md`, `docs/RESEARCH.md`, `docs/PHASE1_RESULTS.md`. Code: `src/matcher/` (API, `linking.py`), `ml/` (data, benchmarks).
 ```bash
 cp .env.example .env          # then set POSTGRES_PASSWORD
 docker compose up -d --build

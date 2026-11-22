@@ -1,0 +1,332 @@
+text,expected
+morning coffee,Coffee
+espresso and lattes,Coffee|Cafe hopping
+drinking coffee with friends,Coffee|Cafe hopping
+south indian filter kaapi,Filter coffee
+degree coffee,Filter coffee
+masala chai,Tea
+green tea,Tea
+chai on rainy evenings,Tea
+microbreweries,Craft beer
+trying new beers,Craft beer
+IPA,Craft beer
+vineyard visits,Wine tasting
+red wine,Wine tasting
+mixology,Cocktails
+making cocktails at home,Cocktails
+pani puri and chaat,Street food
+roadside food stalls,Street food
+exploring street food,Street food
+michelin restaurants,Fine dining
+tasting menus,Fine dining
+baking bread,Baking
+sourdough,Baking
+cake decorating,Baking|Desserts
+home cooking,Cooking
+trying new recipes,Cooking
+plant based diet,Vegan food
+hyderabadi biryani,Biryani
+dosa and idli,South Indian food
+masala dosa,South Indian food
+ice cream,Desserts
+sweet tooth,Desserts
+grilling,Barbecue
+bbq parties,Barbecue
+instagram food reviews,Food blogging
+weekend brunches,Brunch
+brewing kombucha,Home brewing
+visiting new cafes,Cafe hopping
+dark chocolate,Chocolate
+hot and spicy dishes,Spicy food
+japanese food,Sushi
+neapolitan pizza,Pizza
+rajasthani thali,Regional Indian cuisine
+eating clean,Healthy eating
+playing cricket,Cricket
+IPL,Cricket
+gully cricket,Cricket
+watching premier league,Football
+soccer,Football
+five a side football,Football
+NBA,Basketball
+shuttle badminton,Badminton
+playing tennis on weekends,Tennis
+ping pong,Table tennis
+beach volleyball,Volleyball
+pro kabaddi,Kabaddi
+field hockey,Hockey
+lap swimming,Swimming
+road cycling,Cycling
+mountain biking,Cycling
+cycling to work,Cycling
+jogging,Running
+5k runs,Running
+half marathon,Marathons|Running
+running ultramarathons,Marathons
+golfing,Golf
+roller skating,Skating
+kickboxing,Boxing|Martial arts
+karate,Martial arts
+taekwondo,Martial arts
+brazilian jiu jitsu,Martial arts
+playing chess online,Chess
+F1 racing,Formula 1
+dream11,Fantasy sports
+fantasy football,Fantasy sports|Football
+working out,Gym
+lifting weights,Weightlifting|Gym
+hatha yoga,Yoga
+power yoga,Yoga
+vipassana,Meditation
+guided meditation,Meditation|Mindfulness
+reformer pilates,Pilates
+functional fitness,CrossFit
+powerlifting,Weightlifting
+bodyweight training,Calisthenics
+pull ups and street workout,Calisthenics
+zumba classes,Zumba
+dance workouts,Dance fitness|Zumba
+being present,Mindfulness
+macro counting,Nutrition
+ayurvedic lifestyle,Ayurveda
+pranayama,Breathwork
+better sleep,Sleep health
+therapy and self care,Mental health
+massages,Spa and massage
+evening walks,Walking
+flexibility training,Stretching
+tabata,HIIT workouts
+hiking,Trekking
+himalayan treks,Trekking
+weekend treks in the sahyadris,Trekking
+mountain trails,Trekking
+camping under the stars,Camping|Stargazing
+tent camping,Camping
+bouldering,Rock climbing
+climbing mountains,Mountaineering|Trekking
+summiting peaks,Mountaineering
+scuba,Scuba diving
+deep sea diving,Scuba diving
+snorkelling in andamans,Snorkeling
+riding waves,Surfing
+canoeing,Kayaking
+white water rafting,River rafting
+paragliding in bir billing,Paragliding
+jumping out of planes,Skydiving
+bungee,Bungee jumping
+long drives,Road trips
+road trips with friends,Road trips
+bike rides,Motorcycling|Cycling
+royal enfield rides,Motorcycling
+4x4 off roading,Off-roading
+birding,Bird watching
+spotting birds,Bird watching
+jungle safaris,Wildlife safaris
+tiger reserves,Wildlife safaris
+angling,Fishing
+looking at stars,Stargazing
+beaches,Beach holidays
+goa beaches,Beach holidays
+backpacking across europe,Backpacking|Travel
+hostel hopping,Backpacking
+snowboarding,Skiing
+exploring caves,Caving
+monsoon waterfalls,Waterfall chasing
+forest walks,Nature walks
+walks in nature,Nature walks
+watercolors,Painting
+acrylic painting,Painting
+oil painting,Painting
+doodling,Drawing|Sketching
+pencil sketches,Sketching
+urban sketching,Sketching
+hand lettering,Calligraphy
+ceramics,Pottery
+wheel throwing,Pottery
+knitting sweaters,Knitting
+amigurumi,Crochet
+hand embroidery,Embroidery
+paper folding,Origami
+carpentry,Woodworking
+making earrings,Jewellery making
+street art,Graffiti
+procreate illustrations,Digital art
+clay modelling,Sculpture|Pottery
+kolam,Rangoli
+mithila painting,Madhubani art
+DIY home decor,Interior decoration|Home decor
+taking photos,Photography
+landscape photography,Nature photography
+photographing flowers and landscapes,Nature photography
+bird photography,Wildlife photography|Bird watching
+wildlife shoots,Wildlife photography
+candid street shots,Street photography
+portraits,Portrait photography
+milky way photography,Astrophotography
+night sky photography,Astrophotography
+flying drones,Drone photography
+iphone photography,Mobile photography
+shooting on 35mm film,Film photography
+analog cameras,Film photography
+shooting videos,Videography
+making films,Filmmaking|Short films
+premiere pro,Video editing
+watching movies,Movies
+cinema,Movies
+movie marathons,Movies
+nature documentaries,Documentaries
+naruto and one piece,Anime
+binge watching netflix,Web series
+hindi movies,Bollywood
+kollywood,Tamil cinema
+MAMI film festival,Film festivals
+singing in a choir,Singing
+playing guitar,Guitar
+acoustic guitar,Guitar
+keyboard,Piano
+playing drums,Drums
+carnatic vocals,Carnatic music
+ghazals,Hindustani classical music
+classic rock,Rock music
+heavy metal,Rock music
+rap music,Hip hop
+techno,EDM
+house music,EDM
+indie bands,Indie music
+BTS,K-pop
+sunburn festival,Music festivals
+going to gigs,Live concerts
+mixing tracks,DJing
+making beats,Music production
+true crime podcasts,Podcasts
+gaming,Video games
+playstation,Video games
+steam games,PC gaming
+BGMI,Mobile gaming
+valorant tournaments,Esports
+catan,Board games
+monopoly nights,Board games
+rummy,Card games
+jigsaw puzzles,Puzzles
+DnD,Dungeons and Dragons
+tabletop rpg,Dungeons and Dragons
+trivia nights,Quizzing
+pub quizzes,Quizzing
+poker,Poker nights
+speedcubing,Rubik's cube
+coding,Programming
+python programming,Programming
+LLMs,Artificial intelligence
+generative ai,Artificial intelligence
+deep learning,Machine learning
+data analytics,Data science
+frontend development,Web development
+building android apps,App development
+entrepreneurship,Startups
+bitcoin,Cryptocurrency
+building robots,Robotics
+arduino projects,Electronics and Arduino
+3d printers,3D printing
+ethical hacking,Cybersecurity
+latest smartphones,Gadgets
+astronomy,Space and astronomy
+contributing to github,Open source
+UI UX,UX design
+reading books,Reading
+novels,Fiction
+self help books,Self improvement|Non-fiction
+writing poems,Poetry
+creative writing,Writing
+journaling,Writing
+indian history,History
+stoicism,Philosophy
+human behaviour,Psychology
+learning french,Learning languages
+toastmasters,Public speaking
+book club meetups,Book clubs
+marvel comics,Comics
+manga,Comics|Anime
+greek mythology,Mythology
+stock market,Investing
+mutual funds,Investing|Personal finance
+budgeting,Personal finance
+NGO work,Volunteering
+helping stray dogs,Animal welfare|Dogs
+climate action,Environment and sustainability
+planting trees,Tree planting
+cleaning beaches,Beach cleanups
+teaching underprivileged children,Teaching kids
+standup comedy,Stand-up comedy
+open mics,Stand-up comedy
+drama and plays,Theatre
+dance,Dancing
+classical dance,Bharatanatyam
+bachata,Salsa
+exploring new countries,Travel
+traveling alone,Solo travel
+dog lover,Dogs|Pet lovers
+my golden retriever,Dogs
+cat person,Cats
+terrace gardening,Gardening
+houseplants,Indoor plants
+streetwear,Fashion
+sneakerheads,Sneakers
+thrift shopping,Thrifting
+skin care routines,Skincare
+classic cars,Vintage cars
+superbikes,Motorcycling
+decluttering,Minimalism
+zodiac signs,Astrology
+tarot reading,Tarot
+diwali celebrations,Festivals
+old city heritage walks,Heritage walks
+art galleries,Museums
+youtube vlogs,Vlogging
+beekeeping,
+falconry,
+taxidermy,
+competitive eating,
+lock picking,
+genealogy,
+coin collecting,
+stamp collecting,
+magic tricks,
+juggling,
+parkour,
+fencing,
+horse riding,
+sailing,
+kite flying,
+model trains,
+lego building,
+cosplay,
+perfume making,
+soap making,
+bonsai,
+aquariums,
+metal detecting,
+sim racing,
+ham radio,
+calligraphy pens restoration,
+watch collecting,
+fountain pens,
+wine making,Home brewing
+cheese making,
+foraging mushrooms,
+urban exploration,
+bowling,
+billiards,
+darts,
+frisbee,
+sign language,
+tai chi,
+storm chasing,
+volcano tourism,
+ghost hunting,
+puppetry,
+ventriloquism,
+glass blowing,
+blacksmithing,
+leather crafting,
+bookbinding,
+whittling,

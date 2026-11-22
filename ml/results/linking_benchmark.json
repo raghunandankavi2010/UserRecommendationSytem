@@ -1,0 +1,1927 @@
+[
+  {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "top1_acc": 0.7288732394366197,
+    "top3_acc": 0.8415492957746479,
+    "auto_min": 0.745,
+    "ask_min": 0.5800000000000001,
+    "auto_rate": 0.33098591549295775,
+    "auto_precision": 0.9375284997720018,
+    "ask_rate": 0.3415492957746479,
+    "ask_hit_rate": 0.9611842105263158,
+    "lost_rate": 0.3274647887323944,
+    "novel_to_new": 0.8740942028985508,
+    "novel_auto_linked": 0.0,
+    "end_to_end": 0.6706462212486308,
+    "folds": [
+      {
+        "auto_min": 0.76,
+        "ask_min": 0.56,
+        "auto_rate": 0.3028169014084507,
+        "auto_precision": 0.9534883720930233,
+        "ask_rate": 0.4014084507042254,
+        "ask_hit_rate": 0.9473684210526315,
+        "lost_rate": 0.29577464788732394,
+        "novel_to_new": 0.7916666666666666,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.6867469879518072
+      },
+      {
+        "auto_min": 0.73,
+        "ask_min": 0.6,
+        "auto_rate": 0.3591549295774648,
+        "auto_precision": 0.9215686274509803,
+        "ask_rate": 0.28169014084507044,
+        "ask_hit_rate": 0.975,
+        "lost_rate": 0.3591549295774648,
+        "novel_to_new": 0.9565217391304348,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.6545454545454545
+      }
+    ],
+    "encode_one_ms": 7.3,
+    "batch_s": 0.6,
+    "test_misses": [
+      [
+        "south indian filter kaapi",
+        "South Indian food",
+        0.53
+      ],
+      [
+        "degree coffee",
+        "Coffee",
+        0.7
+      ],
+      [
+        "masala chai",
+        "Bollywood",
+        0.46
+      ],
+      [
+        "chai on rainy evenings",
+        "Festivals",
+        0.4
+      ],
+      [
+        "IPA",
+        "Cocktails",
+        0.42
+      ],
+      [
+        "pani puri and chaat",
+        "Bollywood",
+        0.38
+      ],
+      [
+        "michelin restaurants",
+        "Street food",
+        0.42
+      ],
+      [
+        "tasting menus",
+        "Wine tasting",
+        0.58
+      ],
+      [
+        "sourdough",
+        "Brunch",
+        0.47
+      ],
+      [
+        "cake decorating",
+        "Home decor",
+        0.6
+      ],
+      [
+        "plant based diet",
+        "Nutrition",
+        0.54
+      ],
+      [
+        "dosa and idli",
+        "Bollywood",
+        0.37
+      ],
+      [
+        "masala dosa",
+        "Bollywood",
+        0.44
+      ],
+      [
+        "sweet tooth",
+        "Chocolate",
+        0.63
+      ],
+      [
+        "grilling",
+        "Cooking",
+        0.71
+      ],
+      [
+        "rajasthani thali",
+        "Bollywood",
+        0.48
+      ],
+      [
+        "IPL",
+        "Networking",
+        0.46
+      ],
+      [
+        "ping pong",
+        "Volleyball",
+        0.45
+      ],
+      [
+        "F1 racing",
+        "Golf",
+        0.52
+      ],
+      [
+        "dream11",
+        "Mythology",
+        0.29
+      ],
+      [
+        "functional fitness",
+        "Gym",
+        0.49
+      ],
+      [
+        "bodyweight training",
+        "Weightlifting",
+        0.68
+      ],
+      [
+        "pull ups and street workout",
+        "Gym",
+        0.47
+      ],
+      [
+        "being present",
+        "Volunteering",
+        0.39
+      ],
+      [
+        "macro counting",
+        "Formula 1",
+        0.32
+      ],
+      [
+        "pranayama",
+        "Yoga",
+        0.62
+      ],
+      [
+        "tabata",
+        "Biryani",
+        0.4
+      ],
+      [
+        "hiking",
+        "Mountaineering",
+        0.7
+      ],
+      [
+        "himalayan treks",
+        "Mountaineering",
+        0.56
+      ],
+      [
+        "mountain trails",
+        "Mountaineering",
+        0.75
+      ],
+      [
+        "long drives",
+        "Short films",
+        0.4
+      ],
+      [
+        "royal enfield rides",
+        "Cycling",
+        0.5
+      ],
+      [
+        "angling",
+        "Archery",
+        0.46
+      ],
+      [
+        "hostel hopping",
+        "Cafe hopping",
+        0.54
+      ],
+      [
+        "exploring caves",
+        "Scuba diving",
+        0.42
+      ],
+      [
+        "doodling",
+        "DJing",
+        0.45
+      ],
+      [
+        "wheel throwing",
+        "Motorcycling",
+        0.43
+      ],
+      [
+        "amigurumi",
+        "Anime",
+        0.43
+      ],
+      [
+        "street art",
+        "Street photography",
+        0.78
+      ],
+      [
+        "procreate illustrations",
+        "Drawing",
+        0.56
+      ],
+      [
+        "kolam",
+        "Kabaddi",
+        0.46
+      ],
+      [
+        "mithila painting",
+        "Painting",
+        0.62
+      ],
+      [
+        "night sky photography",
+        "Nature photography",
+        0.6
+      ],
+      [
+        "analog cameras",
+        "Drone photography",
+        0.52
+      ],
+      [
+        "shooting videos",
+        "Video editing",
+        0.66
+      ],
+      [
+        "movie marathons",
+        "Marathons",
+        0.79
+      ],
+      [
+        "binge watching netflix",
+        "Movies",
+        0.43
+      ],
+      [
+        "kollywood",
+        "Kabaddi",
+        0.46
+      ],
+      [
+        "ghazals",
+        "Jazz",
+        0.4
+      ],
+      [
+        "techno",
+        "Indie music",
+        0.51
+      ],
+      [
+        "house music",
+        "Rock music",
+        0.56
+      ],
+      [
+        "BTS",
+        "Bharatanatyam",
+        0.36
+      ],
+      [
+        "sunburn festival",
+        "Festivals",
+        0.64
+      ],
+      [
+        "mixing tracks",
+        "Music production",
+        0.45
+      ],
+      [
+        "gaming",
+        "PC gaming",
+        0.86
+      ],
+      [
+        "playstation",
+        "PC gaming",
+        0.57
+      ],
+      [
+        "steam games",
+        "Video games",
+        0.69
+      ],
+      [
+        "BGMI",
+        "Biryani",
+        0.44
+      ],
+      [
+        "catan",
+        "Cats",
+        0.51
+      ],
+      [
+        "monopoly nights",
+        "Poker nights",
+        0.7
+      ],
+      [
+        "rummy",
+        "Politics",
+        0.38
+      ],
+      [
+        "trivia nights",
+        "Poker nights",
+        0.57
+      ],
+      [
+        "speedcubing",
+        "Caving",
+        0.42
+      ],
+      [
+        "LLMs",
+        "EDM",
+        0.58
+      ],
+      [
+        "entrepreneurship",
+        "Economics",
+        0.51
+      ],
+      [
+        "ethical hacking",
+        "Hackathons",
+        0.62
+      ],
+      [
+        "latest smartphones",
+        "Mobile photography",
+        0.48
+      ],
+      [
+        "journaling",
+        "Blogging",
+        0.59
+      ],
+      [
+        "stoicism",
+        "Psychology",
+        0.44
+      ],
+      [
+        "toastmasters",
+        "Podcasts",
+        0.45
+      ],
+      [
+        "open mics",
+        "Karaoke",
+        0.39
+      ],
+      [
+        "classical dance",
+        "Dancing",
+        0.76
+      ],
+      [
+        "bachata",
+        "Biryani",
+        0.48
+      ],
+      [
+        "superbikes",
+        "Baseball",
+        0.55
+      ],
+      [
+        "decluttering",
+        "Thrifting",
+        0.31
+      ],
+      [
+        "art galleries",
+        "Digital art",
+        0.61
+      ],
+      [
+        "wine making",
+        "Wine tasting",
+        0.77
+      ]
+    ]
+  },
+  {
+    "model": "BAAI/bge-small-en-v1.5",
+    "top1_acc": 0.8028169014084507,
+    "top3_acc": 0.897887323943662,
+    "auto_min": 0.8049999999999999,
+    "ask_min": 0.76,
+    "auto_rate": 0.5176056338028169,
+    "auto_precision": 0.9133064516129032,
+    "ask_rate": 0.19014084507042253,
+    "ask_hit_rate": 0.4722222222222222,
+    "lost_rate": 0.29225352112676056,
+    "novel_to_new": 0.6983695652173914,
+    "novel_auto_linked": 0.0625,
+    "end_to_end": 0.664877692588536,
+    "folds": [
+      {
+        "auto_min": 0.79,
+        "ask_min": 0.79,
+        "auto_rate": 0.5985915492957746,
+        "auto_precision": 0.875,
+        "ask_rate": 0.0,
+        "ask_hit_rate": 0.0,
+        "lost_rate": 0.4014084507042254,
+        "novel_to_new": 0.875,
+        "novel_auto_linked": 0.125,
+        "end_to_end": 0.5903614457831325
+      },
+      {
+        "auto_min": 0.82,
+        "ask_min": 0.73,
+        "auto_rate": 0.43661971830985913,
+        "auto_precision": 0.9516129032258065,
+        "ask_rate": 0.38028169014084506,
+        "ask_hit_rate": 0.9444444444444444,
+        "lost_rate": 0.18309859154929578,
+        "novel_to_new": 0.5217391304347826,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.7393939393939394
+      }
+    ],
+    "encode_one_ms": 14.1,
+    "batch_s": 1.0,
+    "test_misses": [
+      [
+        "south indian filter kaapi",
+        "South Indian food",
+        0.71
+      ],
+      [
+        "degree coffee",
+        "Coffee",
+        0.83
+      ],
+      [
+        "masala chai",
+        "Biryani",
+        0.67
+      ],
+      [
+        "chai on rainy evenings",
+        "Waterfall chasing",
+        0.64
+      ],
+      [
+        "microbreweries",
+        "Home brewing",
+        0.76
+      ],
+      [
+        "IPA",
+        "Hip hop",
+        0.68
+      ],
+      [
+        "mixology",
+        "Data science",
+        0.67
+      ],
+      [
+        "pani puri and chaat",
+        "Biryani",
+        0.71
+      ],
+      [
+        "cake decorating",
+        "Home decor",
+        0.79
+      ],
+      [
+        "dosa and idli",
+        "Rangoli",
+        0.64
+      ],
+      [
+        "masala dosa",
+        "Biryani",
+        0.64
+      ],
+      [
+        "sweet tooth",
+        "Chocolate",
+        0.76
+      ],
+      [
+        "rajasthani thali",
+        "Biryani",
+        0.64
+      ],
+      [
+        "functional fitness",
+        "Dance fitness",
+        0.78
+      ],
+      [
+        "bodyweight training",
+        "Bodybuilding",
+        0.81
+      ],
+      [
+        "pull ups and street workout",
+        "HIIT workouts",
+        0.76
+      ],
+      [
+        "being present",
+        "Travel",
+        0.67
+      ],
+      [
+        "macro counting",
+        "Programming",
+        0.63
+      ],
+      [
+        "pranayama",
+        "Yoga",
+        0.78
+      ],
+      [
+        "therapy and self care",
+        "Self improvement",
+        0.75
+      ],
+      [
+        "evening walks",
+        "Nature walks",
+        0.8
+      ],
+      [
+        "tabata",
+        "Flute",
+        0.67
+      ],
+      [
+        "hiking",
+        "Nature walks",
+        0.81
+      ],
+      [
+        "mountain trails",
+        "Mountaineering",
+        0.78
+      ],
+      [
+        "hostel hopping",
+        "Cafe hopping",
+        0.81
+      ],
+      [
+        "wheel throwing",
+        "Bungee jumping",
+        0.67
+      ],
+      [
+        "amigurumi",
+        "Anime",
+        0.67
+      ],
+      [
+        "street art",
+        "Street photography",
+        0.85
+      ],
+      [
+        "procreate illustrations",
+        "Drawing",
+        0.71
+      ],
+      [
+        "kolam",
+        "Poetry",
+        0.61
+      ],
+      [
+        "mithila painting",
+        "Painting",
+        0.7
+      ],
+      [
+        "analog cameras",
+        "Videography",
+        0.77
+      ],
+      [
+        "movie marathons",
+        "Marathons",
+        0.83
+      ],
+      [
+        "hindi movies",
+        "Movies",
+        0.79
+      ],
+      [
+        "kollywood",
+        "K-pop",
+        0.67
+      ],
+      [
+        "ghazals",
+        "Squash",
+        0.6
+      ],
+      [
+        "techno",
+        "DJing",
+        0.73
+      ],
+      [
+        "house music",
+        "Home decor",
+        0.72
+      ],
+      [
+        "BTS",
+        "Startups",
+        0.62
+      ],
+      [
+        "sunburn festival",
+        "Festivals",
+        0.77
+      ],
+      [
+        "making beats",
+        "DJing",
+        0.78
+      ],
+      [
+        "gaming",
+        "PC gaming",
+        0.88
+      ],
+      [
+        "steam games",
+        "Board games",
+        0.79
+      ],
+      [
+        "BGMI",
+        "Bharatanatyam",
+        0.63
+      ],
+      [
+        "catan",
+        "Cats",
+        0.66
+      ],
+      [
+        "monopoly nights",
+        "Poker nights",
+        0.83
+      ],
+      [
+        "rummy",
+        "Cocktails",
+        0.6
+      ],
+      [
+        "speedcubing",
+        "DJing",
+        0.72
+      ],
+      [
+        "LLMs",
+        "EDM",
+        0.62
+      ],
+      [
+        "ethical hacking",
+        "Hackathons",
+        0.75
+      ],
+      [
+        "journaling",
+        "Blogging",
+        0.81
+      ],
+      [
+        "human behaviour",
+        "Animal welfare",
+        0.7
+      ],
+      [
+        "open mics",
+        "Public speaking",
+        0.78
+      ],
+      [
+        "classical dance",
+        "Dancing",
+        0.77
+      ],
+      [
+        "bachata",
+        "Flute",
+        0.64
+      ],
+      [
+        "wine making",
+        "Wine tasting",
+        0.78
+      ]
+    ]
+  },
+  {
+    "model": "thenlper/gte-small",
+    "top1_acc": 0.795774647887324,
+    "top3_acc": 0.8908450704225352,
+    "auto_min": 0.91,
+    "ask_min": 0.865,
+    "auto_rate": 0.3838028169014085,
+    "auto_precision": 0.9452464788732394,
+    "ask_rate": 0.3767605633802817,
+    "ask_hit_rate": 0.9645782145782146,
+    "lost_rate": 0.23943661971830987,
+    "novel_to_new": 0.8288043478260869,
+    "novel_auto_linked": 0.041666666666666664,
+    "end_to_end": 0.7433004746257759,
+    "folds": [
+      {
+        "auto_min": 0.9,
+        "ask_min": 0.87,
+        "auto_rate": 0.4859154929577465,
+        "auto_precision": 0.9154929577464789,
+        "ask_rate": 0.2323943661971831,
+        "ask_hit_rate": 0.9696969696969697,
+        "lost_rate": 0.28169014084507044,
+        "novel_to_new": 0.875,
+        "novel_auto_linked": 0.08333333333333333,
+        "end_to_end": 0.7108433734939759
+      },
+      {
+        "auto_min": 0.92,
+        "ask_min": 0.86,
+        "auto_rate": 0.28169014084507044,
+        "auto_precision": 0.975,
+        "ask_rate": 0.5211267605633803,
+        "ask_hit_rate": 0.9594594594594594,
+        "lost_rate": 0.19718309859154928,
+        "novel_to_new": 0.782608695652174,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.7757575757575758
+      }
+    ],
+    "encode_one_ms": 13.4,
+    "batch_s": 5.3,
+    "test_misses": [
+      [
+        "south indian filter kaapi",
+        "South Indian food",
+        0.85
+      ],
+      [
+        "degree coffee",
+        "Coffee",
+        0.91
+      ],
+      [
+        "masala chai",
+        "Biryani",
+        0.83
+      ],
+      [
+        "chai on rainy evenings",
+        "Biryani",
+        0.82
+      ],
+      [
+        "IPA",
+        "Hip hop",
+        0.84
+      ],
+      [
+        "mixology",
+        "EDM",
+        0.83
+      ],
+      [
+        "pani puri and chaat",
+        "Bollywood",
+        0.84
+      ],
+      [
+        "tasting menus",
+        "Wine tasting",
+        0.86
+      ],
+      [
+        "cake decorating",
+        "Home decor",
+        0.87
+      ],
+      [
+        "dosa and idli",
+        "Rangoli",
+        0.83
+      ],
+      [
+        "masala dosa",
+        "Bollywood",
+        0.82
+      ],
+      [
+        "rajasthani thali",
+        "Biryani",
+        0.83
+      ],
+      [
+        "running ultramarathons",
+        "Running",
+        0.89
+      ],
+      [
+        "vipassana",
+        "Yoga",
+        0.85
+      ],
+      [
+        "functional fitness",
+        "Gym",
+        0.87
+      ],
+      [
+        "bodyweight training",
+        "Bodybuilding",
+        0.89
+      ],
+      [
+        "pull ups and street workout",
+        "HIIT workouts",
+        0.86
+      ],
+      [
+        "being present",
+        "Public speaking",
+        0.83
+      ],
+      [
+        "macro counting",
+        "Puzzles",
+        0.82
+      ],
+      [
+        "pranayama",
+        "Yoga",
+        0.89
+      ],
+      [
+        "therapy and self care",
+        "Self improvement",
+        0.87
+      ],
+      [
+        "tabata",
+        "Tea",
+        0.83
+      ],
+      [
+        "hiking",
+        "Walking",
+        0.91
+      ],
+      [
+        "mountain trails",
+        "Mountaineering",
+        0.88
+      ],
+      [
+        "jumping out of planes",
+        "Paragliding",
+        0.87
+      ],
+      [
+        "hostel hopping",
+        "Cafe hopping",
+        0.91
+      ],
+      [
+        "exploring caves",
+        "Scuba diving",
+        0.86
+      ],
+      [
+        "wheel throwing",
+        "Bungee jumping",
+        0.82
+      ],
+      [
+        "amigurumi",
+        "Anime",
+        0.83
+      ],
+      [
+        "street art",
+        "Street photography",
+        0.92
+      ],
+      [
+        "procreate illustrations",
+        "Drawing",
+        0.84
+      ],
+      [
+        "kolam",
+        "Poetry",
+        0.8
+      ],
+      [
+        "mithila painting",
+        "Painting",
+        0.86
+      ],
+      [
+        "analog cameras",
+        "Videography",
+        0.86
+      ],
+      [
+        "movie marathons",
+        "Marathons",
+        0.91
+      ],
+      [
+        "kollywood",
+        "Bollywood",
+        0.84
+      ],
+      [
+        "ghazals",
+        "Desserts",
+        0.8
+      ],
+      [
+        "techno",
+        "DJing",
+        0.85
+      ],
+      [
+        "house music",
+        "Carnatic music",
+        0.85
+      ],
+      [
+        "BTS",
+        "Startups",
+        0.82
+      ],
+      [
+        "sunburn festival",
+        "Festivals",
+        0.87
+      ],
+      [
+        "going to gigs",
+        "DJing",
+        0.87
+      ],
+      [
+        "mixing tracks",
+        "Music production",
+        0.86
+      ],
+      [
+        "gaming",
+        "PC gaming",
+        0.94
+      ],
+      [
+        "BGMI",
+        "Bharatanatyam",
+        0.83
+      ],
+      [
+        "catan",
+        "Cats",
+        0.85
+      ],
+      [
+        "monopoly nights",
+        "Poker nights",
+        0.9
+      ],
+      [
+        "rummy",
+        "Quizzing",
+        0.81
+      ],
+      [
+        "speedcubing",
+        "Dancing",
+        0.84
+      ],
+      [
+        "LLMs",
+        "EDM",
+        0.81
+      ],
+      [
+        "ethical hacking",
+        "Hackathons",
+        0.88
+      ],
+      [
+        "journaling",
+        "Blogging",
+        0.88
+      ],
+      [
+        "budgeting",
+        "Sketching",
+        0.85
+      ],
+      [
+        "open mics",
+        "Public speaking",
+        0.86
+      ],
+      [
+        "classical dance",
+        "Dancing",
+        0.89
+      ],
+      [
+        "bachata",
+        "Tea",
+        0.82
+      ],
+      [
+        "decluttering",
+        "Thrifting",
+        0.85
+      ],
+      [
+        "wine making",
+        "Wine tasting",
+        0.9
+      ]
+    ]
+  },
+  {
+    "model": "Snowflake/snowflake-arctic-embed-s",
+    "top1_acc": 0.7183098591549296,
+    "top3_acc": 0.8028169014084507,
+    "auto_min": 0.8300000000000001,
+    "ask_min": 0.745,
+    "auto_rate": 0.38380281690140844,
+    "auto_precision": 0.8953488372093024,
+    "ask_rate": 0.31338028169014087,
+    "ask_hit_rate": 0.7527056277056277,
+    "lost_rate": 0.30281690140845074,
+    "novel_to_new": 0.8288043478260869,
+    "novel_auto_linked": 0.020833333333333332,
+    "end_to_end": 0.6315808689302665,
+    "folds": [
+      {
+        "auto_min": 0.78,
+        "ask_min": 0.76,
+        "auto_rate": 0.5985915492957746,
+        "auto_precision": 0.7906976744186046,
+        "ask_rate": 0.08450704225352113,
+        "ask_hit_rate": 0.5833333333333334,
+        "lost_rate": 0.31690140845070425,
+        "novel_to_new": 0.875,
+        "novel_auto_linked": 0.041666666666666664,
+        "end_to_end": 0.5783132530120482
+      },
+      {
+        "auto_min": 0.88,
+        "ask_min": 0.73,
+        "auto_rate": 0.16901408450704225,
+        "auto_precision": 1.0,
+        "ask_rate": 0.5422535211267606,
+        "ask_hit_rate": 0.922077922077922,
+        "lost_rate": 0.2887323943661972,
+        "novel_to_new": 0.782608695652174,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.6848484848484849
+      }
+    ],
+    "encode_one_ms": 12.2,
+    "batch_s": 1.0,
+    "test_misses": [
+      [
+        "espresso and lattes",
+        "Spa and massage",
+        0.73
+      ],
+      [
+        "south indian filter kaapi",
+        "South Indian food",
+        0.74
+      ],
+      [
+        "degree coffee",
+        "Coffee",
+        0.78
+      ],
+      [
+        "masala chai",
+        "Rubik's cube",
+        0.6
+      ],
+      [
+        "chai on rainy evenings",
+        "Rubik's cube",
+        0.72
+      ],
+      [
+        "microbreweries",
+        "Startups",
+        0.76
+      ],
+      [
+        "trying new beers",
+        "Startups",
+        0.76
+      ],
+      [
+        "IPA",
+        "Hip hop",
+        0.7
+      ],
+      [
+        "pani puri and chaat",
+        "Rubik's cube",
+        0.72
+      ],
+      [
+        "michelin restaurants",
+        "Cocktails",
+        0.68
+      ],
+      [
+        "tasting menus",
+        "Wine tasting",
+        0.8
+      ],
+      [
+        "trying new recipes",
+        "Desserts",
+        0.76
+      ],
+      [
+        "dosa and idli",
+        "Women's empowerment",
+        0.71
+      ],
+      [
+        "masala dosa",
+        "Quizzing",
+        0.61
+      ],
+      [
+        "japanese food",
+        "Spicy food",
+        0.75
+      ],
+      [
+        "rajasthani thali",
+        "Women's empowerment",
+        0.63
+      ],
+      [
+        "watching premier league",
+        "Formula 1",
+        0.72
+      ],
+      [
+        "kickboxing",
+        "Rubik's cube",
+        0.7
+      ],
+      [
+        "dream11",
+        "Startups",
+        0.66
+      ],
+      [
+        "vipassana",
+        "Biryani",
+        0.65
+      ],
+      [
+        "functional fitness",
+        "Dance fitness",
+        0.78
+      ],
+      [
+        "bodyweight training",
+        "Bodybuilding",
+        0.78
+      ],
+      [
+        "pull ups and street workout",
+        "HIIT workouts",
+        0.78
+      ],
+      [
+        "being present",
+        "Environment and sustainability",
+        0.75
+      ],
+      [
+        "macro counting",
+        "Rubik's cube",
+        0.7
+      ],
+      [
+        "pranayama",
+        "Yoga",
+        0.71
+      ],
+      [
+        "therapy and self care",
+        "Spa and massage",
+        0.8
+      ],
+      [
+        "tabata",
+        "Quizzing",
+        0.65
+      ],
+      [
+        "hiking",
+        "Backpacking",
+        0.8
+      ],
+      [
+        "weekend treks in the sahyadris",
+        "Podcasts",
+        0.73
+      ],
+      [
+        "mountain trails",
+        "Mountaineering",
+        0.71
+      ],
+      [
+        "camping under the stars",
+        "Space and astronomy",
+        0.76
+      ],
+      [
+        "climbing mountains",
+        "Rock climbing",
+        0.84
+      ],
+      [
+        "summiting peaks",
+        "DJing",
+        0.68
+      ],
+      [
+        "canoeing",
+        "River rafting",
+        0.82
+      ],
+      [
+        "jumping out of planes",
+        "Off-roading",
+        0.73
+      ],
+      [
+        "tiger reserves",
+        "Gym",
+        0.61
+      ],
+      [
+        "looking at stars",
+        "Space and astronomy",
+        0.8
+      ],
+      [
+        "hostel hopping",
+        "Cafe hopping",
+        0.83
+      ],
+      [
+        "watercolors",
+        "Desserts",
+        0.72
+      ],
+      [
+        "wheel throwing",
+        "Off-roading",
+        0.61
+      ],
+      [
+        "amigurumi",
+        "Anime",
+        0.66
+      ],
+      [
+        "paper folding",
+        "Writing",
+        0.65
+      ],
+      [
+        "street art",
+        "Street photography",
+        0.83
+      ],
+      [
+        "procreate illustrations",
+        "Drawing",
+        0.67
+      ],
+      [
+        "kolam",
+        "K-pop",
+        0.65
+      ],
+      [
+        "mithila painting",
+        "Painting",
+        0.68
+      ],
+      [
+        "landscape photography",
+        "Photography",
+        0.79
+      ],
+      [
+        "photographing flowers and landscapes",
+        "Astrophotography",
+        0.78
+      ],
+      [
+        "bird photography",
+        "Photography",
+        0.8
+      ],
+      [
+        "analog cameras",
+        "Photography",
+        0.68
+      ],
+      [
+        "movie marathons",
+        "Marathons",
+        0.89
+      ],
+      [
+        "naruto and one piece",
+        "Dungeons and Dragons",
+        0.73
+      ],
+      [
+        "binge watching netflix",
+        "Quizzing",
+        0.73
+      ],
+      [
+        "hindi movies",
+        "Movies",
+        0.88
+      ],
+      [
+        "kollywood",
+        "K-pop",
+        0.62
+      ],
+      [
+        "ghazals",
+        "Startups",
+        0.68
+      ],
+      [
+        "techno",
+        "Jazz",
+        0.69
+      ],
+      [
+        "house music",
+        "Rock music",
+        0.73
+      ],
+      [
+        "sunburn festival",
+        "Festivals",
+        0.73
+      ],
+      [
+        "mixing tracks",
+        "Rock music",
+        0.72
+      ],
+      [
+        "steam games",
+        "Video games",
+        0.82
+      ],
+      [
+        "BGMI",
+        "Bharatanatyam",
+        0.64
+      ],
+      [
+        "catan",
+        "Cats",
+        0.63
+      ],
+      [
+        "monopoly nights",
+        "Poker nights",
+        0.77
+      ],
+      [
+        "rummy",
+        "HIIT workouts",
+        0.63
+      ],
+      [
+        "trivia nights",
+        "Crossword puzzles",
+        0.72
+      ],
+      [
+        "speedcubing",
+        "Quizzing",
+        0.65
+      ],
+      [
+        "LLMs",
+        "EDM",
+        0.69
+      ],
+      [
+        "latest smartphones",
+        "Startups",
+        0.78
+      ],
+      [
+        "journaling",
+        "Blogging",
+        0.79
+      ],
+      [
+        "toastmasters",
+        "Quizzing",
+        0.63
+      ],
+      [
+        "budgeting",
+        "Quizzing",
+        0.73
+      ],
+      [
+        "open mics",
+        "Open source",
+        0.78
+      ],
+      [
+        "classical dance",
+        "Dancing",
+        0.79
+      ],
+      [
+        "bachata",
+        "Baking",
+        0.58
+      ],
+      [
+        "exploring new countries",
+        "Startups",
+        0.76
+      ],
+      [
+        "my golden retriever",
+        "Startups",
+        0.7
+      ],
+      [
+        "superbikes",
+        "Startups",
+        0.72
+      ],
+      [
+        "wine making",
+        "Jewellery making",
+        0.76
+      ]
+    ]
+  },
+  {
+    "model": "sentence-transformers/all-mpnet-base-v2",
+    "top1_acc": 0.7570422535211268,
+    "top3_acc": 0.9119718309859155,
+    "auto_min": 0.74,
+    "ask_min": 0.61,
+    "auto_rate": 0.38028169014084506,
+    "auto_precision": 0.9541681079211346,
+    "ask_rate": 0.31690140845070425,
+    "ask_hit_rate": 0.955,
+    "lost_rate": 0.3028169014084507,
+    "novel_to_new": 0.7663043478260869,
+    "novel_auto_linked": 0.0,
+    "end_to_end": 0.6797553851770719,
+    "folds": [
+      {
+        "auto_min": 0.75,
+        "ask_min": 0.6,
+        "auto_rate": 0.34507042253521125,
+        "auto_precision": 0.9591836734693877,
+        "ask_rate": 0.352112676056338,
+        "ask_hit_rate": 0.96,
+        "lost_rate": 0.3028169014084507,
+        "novel_to_new": 0.75,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.6807228915662651
+      },
+      {
+        "auto_min": 0.73,
+        "ask_min": 0.62,
+        "auto_rate": 0.4154929577464789,
+        "auto_precision": 0.9491525423728814,
+        "ask_rate": 0.28169014084507044,
+        "ask_hit_rate": 0.95,
+        "lost_rate": 0.3028169014084507,
+        "novel_to_new": 0.782608695652174,
+        "novel_auto_linked": 0.0,
+        "end_to_end": 0.6787878787878788
+      }
+    ],
+    "encode_one_ms": 28.6,
+    "batch_s": 3.2,
+    "test_misses": [
+      [
+        "south indian filter kaapi",
+        "South Indian food",
+        0.56
+      ],
+      [
+        "degree coffee",
+        "Coffee",
+        0.67
+      ],
+      [
+        "masala chai",
+        "South Indian food",
+        0.59
+      ],
+      [
+        "chai on rainy evenings",
+        "South Indian food",
+        0.49
+      ],
+      [
+        "microbreweries",
+        "Home brewing",
+        0.67
+      ],
+      [
+        "IPA",
+        "Karaoke",
+        0.41
+      ],
+      [
+        "mixology",
+        "Psychology",
+        0.46
+      ],
+      [
+        "pani puri and chaat",
+        "Regional Indian cuisine",
+        0.47
+      ],
+      [
+        "tasting menus",
+        "Wine tasting",
+        0.52
+      ],
+      [
+        "sourdough",
+        "Home brewing",
+        0.42
+      ],
+      [
+        "cake decorating",
+        "Interior decoration",
+        0.68
+      ],
+      [
+        "dosa and idli",
+        "Hindustani classical music",
+        0.37
+      ],
+      [
+        "masala dosa",
+        "Biryani",
+        0.46
+      ],
+      [
+        "ice cream",
+        "Chocolate",
+        0.66
+      ],
+      [
+        "sweet tooth",
+        "Chocolate",
+        0.45
+      ],
+      [
+        "grilling",
+        "Cooking",
+        0.73
+      ],
+      [
+        "5k runs",
+        "Marathons",
+        0.72
+      ],
+      [
+        "working out",
+        "Bodybuilding",
+        0.68
+      ],
+      [
+        "functional fitness",
+        "Dance fitness",
+        0.5
+      ],
+      [
+        "bodyweight training",
+        "Weightlifting",
+        0.78
+      ],
+      [
+        "pull ups and street workout",
+        "Pilates",
+        0.46
+      ],
+      [
+        "macro counting",
+        "Sudoku",
+        0.27
+      ],
+      [
+        "pranayama",
+        "Meditation",
+        0.69
+      ],
+      [
+        "therapy and self care",
+        "Self improvement",
+        0.55
+      ],
+      [
+        "evening walks",
+        "Nature walks",
+        0.8
+      ],
+      [
+        "tabata",
+        "Table tennis",
+        0.43
+      ],
+      [
+        "himalayan treks",
+        "Mountaineering",
+        0.72
+      ],
+      [
+        "mountain trails",
+        "Mountaineering",
+        0.74
+      ],
+      [
+        "royal enfield rides",
+        "Vintage cars",
+        0.53
+      ],
+      [
+        "angling",
+        "Caving",
+        0.54
+      ],
+      [
+        "hostel hopping",
+        "Cafe hopping",
+        0.66
+      ],
+      [
+        "exploring caves",
+        "Scuba diving",
+        0.57
+      ],
+      [
+        "wheel throwing",
+        "Skating",
+        0.47
+      ],
+      [
+        "amigurumi",
+        "Anime",
+        0.45
+      ],
+      [
+        "street art",
+        "Street photography",
+        0.71
+      ],
+      [
+        "procreate illustrations",
+        "Drawing",
+        0.64
+      ],
+      [
+        "kolam",
+        "Kabaddi",
+        0.34
+      ],
+      [
+        "mithila painting",
+        "Painting",
+        0.64
+      ],
+      [
+        "analog cameras",
+        "Mobile photography",
+        0.57
+      ],
+      [
+        "movie marathons",
+        "Marathons",
+        0.66
+      ],
+      [
+        "binge watching netflix",
+        "Video games",
+        0.52
+      ],
+      [
+        "kollywood",
+        "Bollywood",
+        0.6
+      ],
+      [
+        "ghazals",
+        "Poetry",
+        0.46
+      ],
+      [
+        "house music",
+        "Indie music",
+        0.59
+      ],
+      [
+        "BTS",
+        "Sneakers",
+        0.35
+      ],
+      [
+        "sunburn festival",
+        "Festivals",
+        0.59
+      ],
+      [
+        "mixing tracks",
+        "Music production",
+        0.58
+      ],
+      [
+        "making beats",
+        "Drums",
+        0.64
+      ],
+      [
+        "gaming",
+        "PC gaming",
+        0.85
+      ],
+      [
+        "playstation",
+        "PC gaming",
+        0.63
+      ],
+      [
+        "BGMI",
+        "Bharatanatyam",
+        0.36
+      ],
+      [
+        "monopoly nights",
+        "Poker nights",
+        0.72
+      ],
+      [
+        "rummy",
+        "Politics",
+        0.35
+      ],
+      [
+        "tabletop rpg",
+        "Board games",
+        0.66
+      ],
+      [
+        "trivia nights",
+        "Poker nights",
+        0.53
+      ],
+      [
+        "speedcubing",
+        "Bungee jumping",
+        0.58
+      ],
+      [
+        "LLMs",
+        "EDM",
+        0.45
+      ],
+      [
+        "latest smartphones",
+        "Mobile gaming",
+        0.52
+      ],
+      [
+        "novels",
+        "Comics",
+        0.64
+      ],
+      [
+        "self help books",
+        "Book clubs",
+        0.46
+      ],
+      [
+        "journaling",
+        "Blogging",
+        0.67
+      ],
+      [
+        "stoicism",
+        "Spirituality",
+        0.55
+      ],
+      [
+        "toastmasters",
+        "Fine dining",
+        0.46
+      ],
+      [
+        "open mics",
+        "Public speaking",
+        0.54
+      ],
+      [
+        "classical dance",
+        "Dancing",
+        0.63
+      ],
+      [
+        "my golden retriever",
+        "Pet lovers",
+        0.54
+      ],
+      [
+        "decluttering",
+        "Thrifting",
+        0.46
+      ],
+      [
+        "diwali celebrations",
+        "Bollywood dance",
+        0.48
+      ],
+      [
+        "wine making",
+        "Wine tasting",
+        0.77
+      ]
+    ]
+  }
+]

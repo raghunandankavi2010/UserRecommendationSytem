@@ -15,7 +15,7 @@ Why each choice: see `RESEARCH.md`. This plan turns the prototype (`src/recsys`)
 |---|---|---|
 | Database + vectors | PostgreSQL 16 + pgvector (HNSW) | One store for users, interests, vectors, feedback |
 | API | Python, FastAPI, SQLAlchemy + Alembic | Same language as the model; prototype code reused |
-| Model | sentence-transformers: all-MiniLM-L6-v2 (baseline) vs EmbeddingGemma-300m, picked in Phase 1 | English, small, fine-tunable, works on unseen interests |
+| Model | sentence-transformers `thenlper/gte-small` (chosen in Phase 1, see `PHASE1_RESULTS.md`) | English, small, fine-tunable, works on unseen interests |
 | Background work | One worker (`arq` on Redis) + scheduled jobs | Embed on write, taxonomy merge, retrain |
 | Packaging | Docker Compose: db, redis, api, worker | Local now, portable to a VM later |
 | Observability | Structured logs, Prometheus `/metrics` | Latency, errors, model version per request |
@@ -95,12 +95,12 @@ Match item:
 
 ## Phases
 
-### Phase 0: setup (½ day)
+### Phase 0: setup (done 2026-11-22)
 - Git repo here; service code in `src/matcher/` next to the prototype `src/recsys/`; `docker-compose.yml`.
 - You install Docker (commands provided; needs sudo).
 - Done when: `docker compose up` gives a healthy API and Postgres with pgvector.
 
-### Phase 1: model choice + interest linking (1–2 days)
+### Phase 1: model choice + interest linking (done 2026-11-22, `PHASE1_RESULTS.md`)
 - Labelled set of ~300–500 English interest pairs (same / related / different), Indian context included.
 - Benchmark MiniLM vs EmbeddingGemma-300m (pair AUC, CPU latency); pick; tune thresholds.
 - Seed taxonomy of ~300 canonical interests.
@@ -108,6 +108,7 @@ Match item:
 
 ### Phase 2: backend core (3–4 days)
 - Schema + migrations, onboarding/interest endpoints, worker, matching, events, connections.
+- Interest aliases: every confirmed "did you mean" phrase is stored and linked directly next time.
 - Port `Recommender` scoring from the prototype.
 - Done when: API tests cover the three linking paths, matching with and without `candidate_ids`,
   exclusions, PII never in `/matches`, contact only after mutual accept, p95 < 150 ms on 100k users.
