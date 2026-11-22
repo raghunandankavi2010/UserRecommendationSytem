@@ -8,3 +8,4 @@ __pycache__/
 data/recsys.db
 .*.swp
 *.swp
+models/

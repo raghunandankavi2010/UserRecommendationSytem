@@ -15,8 +15,7 @@ from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request, Res
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
-from matcher import db, interests, matching
-from matcher.linking import st_encoder
+from matcher import db, interests, matching, versions
 
 EMAIL = r"^[^@\s]+@[^@\s]+\.[^@\s]+$"
 PHONE = r"^\+?[0-9 -]{6,20}$"
@@ -63,9 +62,9 @@ async def lifespan(app: FastAPI):
         raise RuntimeError("API_KEY must be set")
     db.migrate(url)
     app.state.pool = db.make_pool(url)
-    app.state.encode = st_encoder()
+    app.state.live = versions.Live(app.state.pool)
     with app.state.pool.connection() as c:
-        interests.seed_taxonomy(c, app.state.encode, Path(os.environ.get("TAXONOMY_PATH", "ml/data/taxonomy.json")))
+        interests.seed_taxonomy(c, app.state.live.get(), Path(os.environ.get("TAXONOMY_PATH", "ml/data/taxonomy.json")))
     yield
     app.state.pool.close()
 
@@ -83,6 +82,10 @@ def conn(request: Request):
         yield c
 
 
+def model(request: Request) -> versions.Model:
+    return request.app.state.live.get()
+
+
 def user_id(c, external_id: str) -> int:
     row = c.execute("SELECT id FROM users WHERE external_id = %s", (external_id,)).fetchone()
     if row is None:
@@ -97,9 +100,9 @@ def _interest_out(r: dict) -> dict:
                             for s in r["suggestions"]]}
 
 
-def _add(request: Request, c, uid: int, text: str, choice=None) -> dict:
+def _add(m: versions.Model, c, uid: int, text: str, choice=None) -> dict:
     try:
-        return {"text": text, **_interest_out(interests.add_interest(c, request.app.state.encode, uid, text, choice))}
+        return {"text": text, **_interest_out(interests.add_interest(c, m, uid, text, choice))}
     except ValueError as e:
         raise HTTPException(422, str(e))
     except interests.NotFound as e:
@@ -115,11 +118,11 @@ auth = [Depends(require_key)]
 
 
 @app.post("/users", status_code=201, dependencies=auth)
-def create_user(body: NewUser, request: Request, c=Depends(conn)):
+def create_user(body: NewUser, m=Depends(model), c=Depends(conn)):
     uid = c.execute("INSERT INTO users (external_id, name, email, phone, photo_url) VALUES (%s, %s, %s, %s, %s) "
                     "RETURNING id", (body.external_id, body.name, body.email, body.phone, body.photo_url)
                     ).fetchone()["id"]
-    return {"user_id": body.external_id, "interests": [_add(request, c, uid, t) for t in body.interests]}
+    return {"user_id": body.external_id, "interests": [_add(m, c, uid, t) for t in body.interests]}
 
 
 @app.get("/users/{external_id}", dependencies=auth)
@@ -152,14 +155,14 @@ def delete_user(external_id: str, c=Depends(conn)):
 
 
 @app.post("/users/{external_id}/interests", dependencies=auth)
-def add_interest(external_id: str, body: InterestIn, request: Request, c=Depends(conn)):
-    return _add(request, c, user_id(c, external_id), body.text, body.choice)
+def add_interest(external_id: str, body: InterestIn, m=Depends(model), c=Depends(conn)):
+    return _add(m, c, user_id(c, external_id), body.text, body.choice)
 
 
 @app.delete("/users/{external_id}/interests/{interest_id}", status_code=204, dependencies=auth)
-def remove_interest(external_id: str, interest_id: int, c=Depends(conn)):
+def remove_interest(external_id: str, interest_id: int, m=Depends(model), c=Depends(conn)):
     try:
-        interests.remove_interest(c, user_id(c, external_id), interest_id)
+        interests.remove_interest(c, m.version, user_id(c, external_id), interest_id)
     except interests.NotFound as e:
         raise HTTPException(404, str(e))
     return Response(status_code=204)
@@ -175,8 +178,9 @@ def suggest(q: str = Query(min_length=1, max_length=interests.MAX_TEXT), c=Depen
 
 
 @app.post("/users/{external_id}/matches", dependencies=auth)
-def matches(external_id: str, body: MatchQuery, c=Depends(conn)):
-    return {"matches": matching.recommend(c, user_id(c, external_id), body.candidate_ids, body.limit)}
+def matches(external_id: str, body: MatchQuery, m=Depends(model), c=Depends(conn)):
+    return {"matches": matching.recommend(c, m.version, user_id(c, external_id), body.candidate_ids, body.limit,
+                                          pair_min=m.ask_min)}
 
 
 @app.post("/events", status_code=201, dependencies=auth)
@@ -212,4 +216,5 @@ def health(request: Request):
         return JSONResponse({"status": "down", "error": type(e).__name__}, status_code=503)
     if row is None:
         return JSONResponse({"status": "down", "error": "pgvector extension missing"}, status_code=503)
-    return {"status": "ok", "pgvector": row["extversion"]}
+    live = request.app.state.live.model
+    return {"status": "ok", "pgvector": row["extversion"], "model_version": live and live.version}

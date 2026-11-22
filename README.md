@@ -6,7 +6,7 @@ Every recommendation explains itself: shared interests, semantically similar int
 count, common places, days since active. Phone and email are stored but never used or returned.
 
 ## Service (production version, in progress)
-Plan and research: `docs/PLAN.md`, `docs/RESEARCH.md`, `docs/PHASE1_RESULTS.md`. Code: `src/matcher/` (`main.py` API, `interests.py`, `matching.py`, `linking.py`, `migrations/`), `ml/` (data, benchmarks, load test).
+Plan and research: `docs/PLAN.md`, `docs/RESEARCH.md`, `docs/PHASE1_RESULTS.md`, `docs/PHASE3_LEARNING_LOOP.md`. Code: `src/matcher/` (`main.py` API, `interests.py`, `matching.py`, `linking.py`, `migrations/`), `ml/` (data, benchmarks, load test).
 ```bash
 cp .env.example .env          # then set POSTGRES_PASSWORD and API_KEY
 .venv/bin/hf auth login       # once: the model (EmbeddingGemma) is gated; the container reads ~/.cache/huggingface
@@ -16,6 +16,15 @@ open http://localhost:8000/docs   # interactive API docs (OpenAPI)
 TEST_DATABASE_URL=postgresql://matcher:<password>@127.0.0.1:5432/matcher .venv/bin/pytest -q tests
 DATABASE_URL=postgresql://matcher:<password>@127.0.0.1:5432/matcher .venv/bin/python ml/load_test.py 100000
 ```
+Learning loop (`docs/PHASE3_LEARNING_LOOP.md`), run on the host against `DATABASE_URL`:
+```bash
+.venv/bin/python ml/jobs.py nightly              # every night
+.venv/bin/python ml/jobs.py retrain --promote    # weekly; skips until 200 picks, promotes only if the gate passes
+.venv/bin/python ml/jobs.py rollback             # undo the last promotion
+.venv/bin/python ml/jobs.py report               # wave / mutual-accept rate per model version
+.venv/bin/python ml/simulate.py 300              # fake users + labels in matcher_sim, to try the loop
+```
+
 Every endpoint except `/health` needs the `X-API-Key` header. Users are addressed by the Peoplo app's own id.
 
 | Endpoint | Does |

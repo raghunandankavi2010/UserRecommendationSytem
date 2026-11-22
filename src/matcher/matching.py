@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from matcher.interests import MODEL_VERSION, idf_from_counts
+from matcher.interests import idf_from_counts
 from matcher.linking import ASK_MIN
 
 ALPHA = 0.5                       # prototype: hybrid keeps both rare exact matches and synonyms
@@ -19,27 +19,30 @@ RARE_INTERESTS = 3                # exact-overlap retrieval uses only my rarest 
 DISMISS_DAYS = 30
 MAX_SIMILAR_PAIRS = 3
 
-# Interest embeddings never change for a given id within one model version, so cache them per process.
+# An interest's embedding never changes within one model version, so cache it per process.
 # shortcut: unbounded; fine for tens of thousands of interests (768 floats each), add an LRU beyond that
-_vec_cache: dict[int, np.ndarray] = {}
+_vec_cache: dict[tuple[str, int], np.ndarray] = {}
 
 
-def _interest_vectors(conn, ids: set[int]) -> dict[int, np.ndarray]:
-    missing = [i for i in ids if i not in _vec_cache]
+def _interest_vectors(conn, version: str, ids: set[int]) -> dict[int, np.ndarray]:
+    missing = [i for i in ids if (version, i) not in _vec_cache]
     if missing:
-        for r in conn.execute("SELECT id, embedding FROM interests WHERE id = ANY(%s)", (missing,)):
-            _vec_cache[r["id"]] = r["embedding"].to_numpy()
-    return {i: _vec_cache[i] for i in ids}
+        for r in conn.execute("SELECT interest_id, embedding FROM interest_vectors "
+                              "WHERE model_version = %s AND interest_id = ANY(%s)", (version, missing)):
+            _vec_cache[(version, r["interest_id"])] = r["embedding"].to_numpy()
+    return {i: _vec_cache[(version, i)] for i in ids if (version, i) in _vec_cache}
 
 
-def _candidates(conn, me: int, my_vec, candidate_ext_ids: list[str] | None) -> list[int]:
+def _candidates(conn, version: str, me: int, my_vec, candidate_ext_ids: list[str] | None) -> list[int]:
     if candidate_ext_ids is not None:
         return [r["id"] for r in conn.execute("SELECT id FROM users WHERE external_id = ANY(%s) AND id <> %s",
                                               (candidate_ext_ids, me))]
     # HNSW returns at most ef_search rows (default 40); raise it for this transaction so LIMIT is honoured
     conn.execute(f"SET LOCAL hnsw.ef_search = {max(RETRIEVE, 40)}")
+    # vectors of several model versions share one index: keep scanning until LIMIT rows pass the version filter
+    conn.execute("SET LOCAL hnsw.iterative_scan = relaxed_order")
     ann = conn.execute("SELECT user_id FROM user_vectors WHERE model_version = %s AND user_id <> %s "
-                       "ORDER BY embedding <=> %s LIMIT %s", (MODEL_VERSION, me, my_vec, RETRIEVE))
+                       "ORDER BY embedding <=> %s LIMIT %s", (version, me, my_vec, RETRIEVE))
     rare = conn.execute(
         "SELECT DISTINCT ui.user_id FROM user_interests ui WHERE ui.user_id <> %s AND ui.interest_id IN ("
         "  SELECT i.id FROM user_interests mine JOIN interests i ON i.id = mine.interest_id "
@@ -57,14 +60,16 @@ def _excluded(conn, me: int) -> set[int]:
     return {r["id"] for r in rows}
 
 
-def recommend(conn, me: int, candidate_ext_ids: list[str] | None = None, limit: int = 20) -> list[dict]:
+def recommend(conn, version: str, me: int, candidate_ext_ids: list[str] | None = None, limit: int = 20,
+              pair_min: float = ASK_MIN) -> list[dict]:
+    """pair_min: similarity for a close-but-different pair to be shown; use the version's ask_min."""
     row = conn.execute("SELECT embedding FROM user_vectors WHERE user_id = %s AND model_version = %s",
-                       (me, MODEL_VERSION)).fetchone()
+                       (me, version)).fetchone()
     if row is None:
         return []  # no interests yet: nothing to match on
     my_vec = row["embedding"]
     excluded = _excluded(conn, me)
-    cands = [c for c in _candidates(conn, me, my_vec, candidate_ext_ids) if c not in excluded]
+    cands = [c for c in _candidates(conn, version, me, my_vec, candidate_ext_ids) if c not in excluded]
     if not cands:
         return []
 
@@ -73,7 +78,7 @@ def recommend(conn, me: int, candidate_ext_ids: list[str] | None = None, limit: 
         "SELECT u.id, u.external_id, u.name, u.photo_url, 1 - (uv.embedding <=> %s) AS semantic, "
         "       extract(epoch FROM now() - u.last_active_at) / 86400 AS days_inactive "
         "FROM users u JOIN user_vectors uv ON uv.user_id = u.id AND uv.model_version = %s "
-        "WHERE u.id = ANY(%s)", (my_vec, MODEL_VERSION, cands))}
+        "WHERE u.id = ANY(%s)", (my_vec, version, cands))}
     cands = [c for c in cands if c in people]  # candidates without interests cannot be scored
     if not cands:
         return []
@@ -103,19 +108,20 @@ def recommend(conn, me: int, candidate_ext_ids: list[str] | None = None, limit: 
     results.sort(key=lambda t: -t[0])
     top = results[:limit]
 
-    vec = _interest_vectors(conn, set(mine) | {i for _, c, _, _ in top for i in ints[c]})
+    vec = _interest_vectors(conn, version, set(mine) | {i for _, c, _, _ in top for i in ints[c]})
     out = []
     for score, c, shared, m in top:
         theirs = ints[c]
         pairs = sorted(((float(vec[a] @ vec[b]), mine[a], theirs[b])
-                        for a in mine.keys() - shared for b in theirs.keys() - shared), reverse=True)
+                        for a in mine.keys() - shared for b in theirs.keys() - shared
+                        if a in vec and b in vec), reverse=True)
         p = people[c]
         out.append({
             "user_id": p["external_id"], "name": p["name"], "photo_url": p["photo_url"],
             "score": round(score, 4),
             "common_interests": [mine[i] for i in sorted(shared, key=lambda i: -w[i])],
             "similar_interests": [{"you": a, "them": b, "similarity": round(s, 2)}
-                                  for s, a, b in pairs if s >= ASK_MIN][:MAX_SIMILAR_PAIRS],
-            "mutual_connections": m, "model_version": MODEL_VERSION,
+                                  for s, a, b in pairs if s >= pair_min][:MAX_SIMILAR_PAIRS],
+            "mutual_connections": m, "model_version": version,
         })
     return out

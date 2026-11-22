@@ -117,10 +117,11 @@ Match item:
   the retrieval size (default 40 silently capped results), per-interest `user_count` kept by trigger,
   semantic score computed in Postgres, interest vectors cached per process.
 
-### Phase 3: learning loop (2–3 days)
+### Phase 3: learning loop (done 2026-11-22, `PHASE3_LEARNING_LOOP.md`)
 - Nightly taxonomy job, weekly retrain with eval gate, versioned re-embed, rollback, A/B report.
 - Synthetic event generator so the loop can be exercised before the app sends real events.
 - Done when: a retrain can fail the gate safely, or ship and roll back with one command.
+- Result: done, except live A/B serving (deferred until traffic exists; `report` compares versions over time).
 
 ### Phase 4: hardening (1–2 days)
 - Replace the placeholder Postgres password (still `change-me-local-only` locally), PII encryption, API key auth, rate limits, load test at 100k users, HNSW tuning
